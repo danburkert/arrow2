@@ -302,7 +302,11 @@ pub fn page_iter_to_array<I: FallibleStreamingIterator<Item = DataPage, Error = 
                                     v.and_then(|v1| {
                                         // Pad with the value of the MSB to correctly handle (two's complement) negative integers.
                                         let msb_set = v1.last().unwrap_or(&0) >> 7 == 1;
-                                        let padding = if msb_set { &ones_padding } else { &zeros_padding };
+                                        let padding = if msb_set {
+                                            &ones_padding
+                                        } else {
+                                            &zeros_padding
+                                        };
                                         [padding, v1]
                                             .concat()
                                             .try_into()

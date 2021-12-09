@@ -293,6 +293,11 @@ fn v2_decimal_9_required() -> Result<()> {
 }
 
 #[test]
+fn v2_decimal_9_required_dict() -> Result<()> {
+    test_pyarrow_integration(6, 2, "basic", true, true)
+}
+
+#[test]
 fn v2_decimal_18_nullable() -> Result<()> {
     test_pyarrow_integration(8, 2, "basic", false, false)
 }
@@ -303,6 +308,11 @@ fn v2_decimal_18_required() -> Result<()> {
 }
 
 #[test]
+fn v2_decimal_18_required_dict() -> Result<()> {
+    test_pyarrow_integration(7, 2, "basic", true, true)
+}
+
+#[test]
 fn v2_decimal_26_nullable() -> Result<()> {
     test_pyarrow_integration(9, 2, "basic", false, false)
 }
@@ -310,6 +320,11 @@ fn v2_decimal_26_nullable() -> Result<()> {
 #[test]
 fn v2_decimal_26_required() -> Result<()> {
     test_pyarrow_integration(8, 2, "basic", false, true)
+}
+
+#[test]
+fn v2_decimal_26_required_dict() -> Result<()> {
+    test_pyarrow_integration(8, 2, "basic", true, true)
 }
 
 #[test]
